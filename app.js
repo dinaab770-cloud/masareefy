@@ -105,7 +105,7 @@ function render() {
     total = total + item.amount;
   });
 
-  countEl.textContent = visible.length - 1;
+  countEl.textContent = visible.length;
   totalEl.textContent = total;
 }
 

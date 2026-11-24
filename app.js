@@ -27,6 +27,7 @@ function saveExpenses() {
 }
 
 form.addEventListener("submit", function (e) {
+  e.preventDefault();
   const title = titleInput.value.trim();
   const amount = amountInput.value;
   const category = categoryInput.value;

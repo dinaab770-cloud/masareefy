@@ -19,7 +19,31 @@ const countEl = document.getElementById("count");
 const totalEl = document.getElementById("total");
 
 function loadExpenses() {
-  return localStorage.getItem(STORAGE_KEY) || [];
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (!saved) return [];
+
+  try {
+    const parsed = JSON.parse(saved);
+    if (!Array.isArray(parsed)) return [];
+
+    return parsed
+      .filter(function (item) {
+        return item && typeof item === "object" &&
+          typeof item.title === "string" && item.title.trim() !== "" &&
+          Number.isFinite(Number(item.amount)) && Number(item.amount) > 0 &&
+          typeof item.category === "string";
+      })
+      .map(function (item, index) {
+        return {
+          id: item.id == null ? "restored-" + Date.now() + "-" + index : item.id,
+          title: item.title,
+          amount: Number(item.amount),
+          category: item.category
+        };
+      });
+  } catch (error) {
+    return [];
+  }
 }
 
 function saveExpenses() {

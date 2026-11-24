@@ -56,8 +56,10 @@ sortSelect.addEventListener("change", function () {
 
 listEl.addEventListener("click", function (e) {
   if (e.target.classList.contains("delete-btn")) {
-    const index = Number(e.target.dataset.index);
-    expenses.splice(index, 1);
+    const id = e.target.dataset.id;
+    expenses = expenses.filter(function (item) {
+      return String(item.id) !== id;
+    });
     saveExpenses();
     render();
   }
@@ -89,14 +91,14 @@ function render() {
     listEl.appendChild(empty);
   }
 
-  visible.forEach(function (item, index) {
+  visible.forEach(function (item) {
     const li = document.createElement("li");
     const text = document.createElement("span");
     text.textContent = item.title + " - " + item.amount + " جنيه";
     const btn = document.createElement("button");
     btn.className = "delete-btn";
     btn.textContent = "حذف";
-    btn.dataset.index = index;
+    btn.dataset.id = item.id;
     li.appendChild(text);
     li.appendChild(btn);
     listEl.appendChild(li);

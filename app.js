@@ -38,7 +38,7 @@ form.addEventListener("submit", function (e) {
   }
   errorBox.textContent = "";
 
-  expenses.push({ id: Date.now(), title: title, amount: amount, category: category });
+  expenses.push({ id: Date.now(), title: title, amount: Number(amount), category: category });
   saveExpenses();
   form.reset();
   render();

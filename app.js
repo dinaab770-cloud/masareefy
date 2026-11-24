@@ -65,7 +65,7 @@ listEl.addEventListener("click", function (e) {
 
 function getVisibleExpenses() {
   let list = expenses.filter(function (x) {
-    return x.category === currentFilter;
+    return currentFilter === "all" || x.category === currentFilter;
   });
 
   if (currentSort === "amount") {

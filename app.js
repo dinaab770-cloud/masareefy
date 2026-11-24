@@ -69,7 +69,9 @@ function getVisibleExpenses() {
   });
 
   if (currentSort === "amount") {
-    list.sort();
+    list.sort(function (a, b) {
+      return Number(b.amount) - Number(a.amount);
+    });
   } else {
     list.reverse();
   }

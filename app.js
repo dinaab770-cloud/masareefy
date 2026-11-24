@@ -29,16 +29,16 @@ function saveExpenses() {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   const title = titleInput.value.trim();
-  const amount = amountInput.value;
+  const amount = Number(amountInput.value);
   const category = categoryInput.value;
 
-  if (!title || !amount) {
-    errorBox.textContent = "اكتب اسم المصروف والمبلغ";
+  if (!title || !Number.isFinite(amount) || amount <= 0) {
+    errorBox.textContent = "اكتب اسم المصروف ومبلغًا صحيحًا أكبر من صفر";
     return;
   }
   errorBox.textContent = "";
 
-  expenses.push({ id: Date.now(), title: title, amount: Number(amount), category: category });
+  expenses.push({ id: Date.now(), title: title, amount: amount, category: category });
   saveExpenses();
   form.reset();
   render();

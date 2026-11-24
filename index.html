@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>مصاريفي</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>مصاريفي</h1>
+
+    <form id="expense-form" class="card">
+      <input id="title" type="text" placeholder="اسم المصروف (مثال: غدا)">
+      <input id="amount" type="number" placeholder="المبلغ بالجنيه">
+      <select id="category">
+        <option value="food">أكل</option>
+        <option value="transport">مواصلات</option>
+        <option value="study">دراسة</option>
+        <option value="other">أخرى</option>
+      </select>
+      <button type="submit">إضافة</button>
+      <p id="error" class="error"></p>
+    </form>
+
+    <section class="card controls">
+      <label>التصنيف:
+        <select id="filter">
+          <option value="all">الكل</option>
+          <option value="food">أكل</option>
+          <option value="transport">مواصلات</option>
+          <option value="study">دراسة</option>
+          <option value="other">أخرى</option>
+        </select>
+      </label>
+      <label>الترتيب:
+        <select id="sort">
+          <option value="newest">الأحدث أولا</option>
+          <option value="amount">الأعلى مبلغا</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="card">
+      <p>عدد المصاريف: <strong id="count">0</strong></p>
+      <p>الإجمالي: <strong id="total">0</strong> جنيه</p>
+      <ul id="list"></ul>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

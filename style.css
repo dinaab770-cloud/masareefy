@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+body { font-family: Tahoma, Arial, sans-serif; background: #f3f4f6; margin: 0; color: #1f2937; }
+.app { max-width: 520px; margin: 0 auto; padding: 16px; }
+h1 { text-align: center; }
+.card { background: #fff; border-radius: 10px; padding: 14px; margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+#expense-form { display: grid; gap: 8px; }
+input, select, button { padding: 10px; font-size: 16px; border: 1px solid #d1d5db; border-radius: 8px; font-family: inherit; }
+button[type="submit"] { background: #2563eb; color: #fff; border: none; cursor: pointer; }
+.error { color: #dc2626; margin: 0; min-height: 1em; }
+.controls { display: flex; gap: 12px; flex-wrap: wrap; }
+ul { list-style: none; padding: 0; margin: 0; }
+li { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 0; border-bottom: 1px solid #e5e7eb; }
+.delete-btn { background: #fff; color: #fff; border: none; cursor: pointer; }
+.empty { color: #6b7280; text-align: center; padding: 12px 0; }
